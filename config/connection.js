@@ -6,3 +6,13 @@ connection = mysql.createConnection({
     database: "burgers_db"
 });
 
+connection.connect(function(err) {
+    if (err){
+        console.err("err connecting: " + err.stack);
+        return;
+    }
+    console.log("connecting as id " + connection.threadId);
+
+});
+
+module.exports = connection;
